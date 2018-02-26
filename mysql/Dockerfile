@@ -1,6 +1,6 @@
 #FROM registry.cn-shenzhen.aliyuncs.com/whb/mysql:5.6
-FROM registry.cn-shenzhen.aliyuncs.com/whb/mysql:5.6_1
-MAINTAINER BolingCavalry <zq2599@gmail.com>
+FROM registry.cn-shenzhen.aliyuncs.com/whb/mysql:5.6
+MAINTAINER whb
 ENV WORK_PATH /usr/local/work
 
 #定义会被容器自动执行的目录

@@ -7,15 +7,17 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/whb/redis
     restart: always
   disconf_zookeeper: 
-    image: registry.cn-shenzhen.aliyuncs.com/epipe/zookeeper
+    image: registry.cn-shenzhen.aliyuncs.com/whb/zookeeper
     restart: always
   disconf_mysql: 
-    image: bolingcavalry/disconf_mysql:0.0.1
+    image: registry.cn-shenzhen.aliyuncs.com/whb/disconf_mysql:0.0.1
     environment:
       MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "3306:3306"
     restart: always
   disconf_tomcat: 
-    image: bolingcavalry/disconf_tomcat:0.0.1
+    image: registry.cn-shenzhen.aliyuncs.com/whb/disconf_tomcat:0.0.1
     links: 
       - disconf_redis_1:redishost001 
       - disconf_redis_2:redishost002
@@ -23,7 +25,7 @@ services:
       - disconf_mysql:mysqlhost
     restart: always
   disconf_nginx: 
-    image: bolingcavalry/disconf_nginx:0.0.1
+    image: registry.cn-shenzhen.aliyuncs.com/whb/disconf_nginx:0.0.1
     links: 
       - disconf_tomcat:tomcathost 
     ports: 
